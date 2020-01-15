@@ -340,6 +340,13 @@ def toys_that_jet_owns
   SQL
 end
 
+SELECT
+*
+FROM
+    toys as t1
+    JOIN cattoys as c1 ON c1.toy_id = t1.id
+    JOIN cats as a1 ON a1.id = c1.cat_id;
+
 # JOIN
   #   cattoys c1 ON t.id = c1.toy_id
   # JOIN 
