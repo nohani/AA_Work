@@ -117,18 +117,15 @@ class SQLObject
 
   def attribute_values
     columns = self.class.columns
-    columns.map { |column| self.send(column)}
-    
+    columns.map { |column| self.send(column) }
   end
 
   def insert
     #two local vars
     cols_name = self.class.columns.drop(1).join(",")
-    p cols_name
     question_marks = ["?"] * (self.class.columns.length - 1)
-    p question_marks
     question_marks = question_marks.join(",")
-    p attribute_values
+    
     DBConnection.execute(<<-SQL, *attribute_values.drop(1))
       INSERT INTO
         #{ self.class.table_name }(#{cols_name})
@@ -140,11 +137,23 @@ class SQLObject
   end
 
   def update
-    # ...
+    set_line = self.class.columns.map {|col| "#{col} = ?"}.join(",")
+    DBConnection.execute(<<-SQL, *attribute_values, id)
+      UPDATE
+        #{self.class.table_name}
+      SET
+        #{set_line}
+      WHERE
+        #{self.class.table_name}.id = ?
+    SQL
   end
 
   def save
-    # ...
+    if id.nil?
+      self.insert
+    else
+      self.update
+    end
   end
-  # self.finalize!
+
 end
