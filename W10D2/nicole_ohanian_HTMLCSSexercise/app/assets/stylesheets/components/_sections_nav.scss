@@ -1,0 +1,20 @@
+.section-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-size: 12px;
+   
+}
+
+.section-nav li span a:hover {
+    background-color: gray;
+}
+
+.section-nav li:last-of-type a {
+    text-transform: uppercase;
+}
+
+.section-nav li:last-of-type a:hover {
+    text-decoration: underline;
+}
