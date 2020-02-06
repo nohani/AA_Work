@@ -1,0 +1,15 @@
+/* PHASE 4: Footer */
+
+footer {
+    justify-content: space-between;
+    height: 50px;
+    align-content: center;
+}
+
+ul {
+    display: flex;
+}
+
+ul.links li {
+    padding: 6px;
+}
