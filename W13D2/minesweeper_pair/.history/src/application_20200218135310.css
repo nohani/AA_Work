@@ -1,0 +1,15 @@
+.tile {
+  background-color: rgba(128, 128, 128, 0.685);
+  border: 1px solid black;
+  font-family: sans-serif;
+  min-width: 10px;
+  min-height: 10px;
+}
+
+.board {
+  display: flex;
+}
+
+.row {
+  display: flex;
+}

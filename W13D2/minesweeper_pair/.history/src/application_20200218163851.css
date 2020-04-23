@@ -1,0 +1,26 @@
+.tile {
+  background-color: rgba(128, 128, 128, 0.685);
+  border: 1px inset black;
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  text-align: center;
+  vertical-align: center;
+}
+
+.board {
+  display: flex;
+}
+
+.row {
+  display: flex;
+}
+
+#modal {
+  display: none;
+}
+
+#modal.is-active {
+  display: block;
+}
